@@ -164,16 +164,17 @@
 
 
     <script>
+
 $("#co1").click(function(){
-    $(".co1b").toggle();
+    $(".co1b").toggle(1000);
 });
 
 $("#co2").click(function(){
-    $(".co2b").toggle();
+    $(".co2b").toggle(1000);
 });
 
 $("#co3").click(function(){
-    $(".co3b").toggle();
+    $(".co3b").toggle(1000);
 });
     </script>
 </body>
