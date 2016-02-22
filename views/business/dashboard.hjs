@@ -111,6 +111,32 @@
         </table>
     </div>
     </div>
+
+     <div class="panel panel-warning">
+    <div class="panel-heading" id="co3">
+          <h4><strong>Quart 3.0</strong><span class="pull-right"><strong>Pending</strong></h4>
+    </div>
+    <div class="panel-body co3b">
+        <table style="width:100%">
+        <colgroup>
+          <col span="2" class="col-md-6">
+        </colgroup>
+            <tr>
+            <td>Company Name: Quart 3.0</td>
+            <td>Address: 2105 Garnet Ave. San Diego, CA 92109</td> 
+          </tr>
+
+          <tr>
+            <td>Owner: Gev Gev</td>
+            <td>Description: Web developer co</td> 
+          </tr>
+          <tr>
+            <td>Contact: 858-270-2086</td>
+            <td>Notes: </td>
+          </tr>
+        </table>
+    </div>
+    </div>
   </div>
 
 </div>
@@ -144,6 +170,10 @@ $("#co1").click(function(){
 
 $("#co2").click(function(){
     $(".co2b").toggle();
+});
+
+$("#co3").click(function(){
+    $(".co3b").toggle();
 });
     </script>
 </body>
