@@ -69,15 +69,23 @@ body {
 }
 
 .btn-success {
-  background-color: #21ca6b;
+  background-color: #ffae00;
   color: #ffffff;
   font-family: 'Lato', sans-serif;
   border-radius: 4px; /* Overrides bootstrap rounded corners*/
-  border-color: #21ca6b;
+  border-color: #ffae00;
+}
+
+.btn-danger {
+  background-color: #071C33;
+  color: #ffffff;
+  font-family: 'Lato', sans-serif;
+  border-radius: 4px; /* Overrides bootstrap rounded corners*/
+  border-color: #071C33;
 }
 
 .btn-success:hover {
-  background-color: #1eb962;
+  background-color: #ffae00;
   color: #ffffff;
 }
 
@@ -122,47 +130,47 @@ body {
 */
 
 .navbar-default {
-  background-color: #42444f;
-  border-color: #42444f;
+  background-color: #071C33;
+  border-color: #071C33;
 }
 .navbar-default .navbar-brand {
-  color: #999999;
+  color: #ffae00;
 }
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
   color: #ffffff;
 }
 .navbar-default .navbar-text {
-  color: #999999;
+  color: #ffae00;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #999999;
+  color: #ffffff;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
   color: #ffffff;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  color: #ffffff;
-  background-color: #42444f;
+  color: #ffae00;
+  background-color: #071C33;
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
   color: #ffffff;
-  background-color: #42444f;
+  background-color: #071C33;
 }
 .navbar-default .navbar-toggle {
-  border-color: #42444f;
+  border-color: #071C33;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-  background-color: #42444f;
+  background-color: #071C33;
 }
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #999999;
+  background-color: #ffae00;
 }
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
-  border-color: #999999;
+  border-color: #ffae00;
 }
 .navbar-default .navbar-link {
-  color: #999999;
+  color: #ffae00;
 }
 .navbar-default .navbar-link:hover {
   color: #ffffff;
@@ -170,38 +178,44 @@ body {
 
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: #999999;
+    color: #ffae00;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
     color: #ffffff;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #ffffff;
-    background-color: #42444f;
+    color: #ffae00;
+    background-color: #071C33;
   }
 }
 
 #company-logo {
   height:75px;
-  margin-left:10%;
+  margin-left:-20%;
   margin-top:-15%;
 }
 
 #login-btn-navbar {
   margin-top: 8px;
-  margin-right: 100px;
+  margin-right: 25px;
   margin-left: 15px;
 }
 /***********************************************/
 
 /********************* Landing Page **************************/
-
+h1, .h1, h4{
+  color: #34495e;
+}
+.overviewColor{
+  color: #888a8c;
+  font-size: 20px;
+}
 .custom-button {
-  background-color: #21ca6b;
+  background-color: #ffae00;
   color: #ffffff;
   font-family: 'Lato', sans-serif;
   border-radius: 4px; /* Overrides bootstrap rounded corners*/
-  border-color: #21ca6b;
+  border-color: #ffae00;
   width: 100px;
 }
 
@@ -210,7 +224,7 @@ body {
 }
 
 .custom-button:hover {
-  background-color: #1eb962;
+  background-color: #ffae00;
   color: #ffffff;
 }
 
@@ -235,7 +249,7 @@ body {
 }
 
 #first-section {
-  background-image: url('../images/bg.jpg');
+  background-image: url('../images/bg2.jpg');
   height: 100vh;
   padding-top: 160px;
   background-repeat: no-repeat;
@@ -244,25 +258,27 @@ body {
 }
 
 .heading {
-  color:#42444F;
+  color:#071C33;
   font-weight: bolder;
 }
 
 .info-text{
-  color:#42444F;
+  color:#071C33;
   font-size: 20px;
 }
 
 #intro {
   width: 40%;
-  margin-left: 130px;
+  margin-left: 25px;
   margin-top: 40px;
   background: rgba(256,256,256,0.8);
   padding-bottom:20px;
 }
 
 #intro-image {
-    margin-left: 100px;
+    //margin-left: 100px;
+    position: absolute;
+    left: 30%;
     width:500px;
 }
 .landing-pic {
@@ -281,9 +297,9 @@ body {
 
 .testimonial {
   margin: 50px auto;
-  background: #42444F;
+  background: #071C33;
   padding: 20px 30px;
-  color: #ffffff;
+  color: #ffae00;
   font-style: italic;
   width: 70%;
 }
@@ -293,7 +309,7 @@ body {
   height: 0;
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
-  border-top: 15px solid #42444F;
+  border-top: 15px solid #071C33;
   margin-top: -50px;
   margin-left: 140px;
 }
@@ -301,7 +317,8 @@ body {
 .testimonial-author {
   margin: 10px 0 0 20px;
   font-family: Arial, Helvetica, sans-serif;
-  color: #999999;
+  color: #888a8c;
+  font-size: 15px;
   text-align: left;
 }
 
@@ -317,12 +334,12 @@ body {
 }
 
 .testimonial-grey {
-  background: #eceef0;
-  color: #42444F;
+  background: #ffae00;
+  color: #071C33;
 }
 
 .arrow-down-grey {
-  border-top: 15px solid #eceef0;
+  border-top: 15px solid #ffae00;
 }
 
 .testimonial-author {
@@ -336,7 +353,7 @@ body {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 100px;
-  background-color: #42444f;
+  background-color: #071C33;
 }
 
 .footer-links {
@@ -520,7 +537,7 @@ a:hover {
 }
 
 .navbar-default .navbar-tabs ul > .active > a, .navbar-default .navbar-tabs ul > .active > a:hover, .navbar-default .navbar-tabs ul > .active > a:focus {
-  color: #ffffff;
+  color: #ffae00;
   background-color: #555765;
 }
 
@@ -588,7 +605,7 @@ a:hover {
 }
 
 .ipad {
-    background: rgba(256,256,256,0.8);
+  background: rgba(256,256,256,0.8);
   padding-bottom:20px;
   padding-top:20px;
 }
@@ -597,7 +614,7 @@ a:hover {
 
 /*************** Form Builder ***************/
 .toolbar-bgcolor {
-  background-color: #42444f;
+  background-color: #071C33;
 }
 
 #formContent {
@@ -780,15 +797,15 @@ a:hover {
 
 .price.panel-green>.panel-heading {
   color: #fff;
-  background-color: #57AC57;
-  border-color: #71DF71;
-  border-bottom: 1px solid #71DF71;
+  background-color: #ffae00;
+  border-color: #ffae00;
+  border-bottom: 1px solid #ffcf66;
 }
 
 
 .price.panel-green>.panel-body {
   color: #fff;
-  background-color: #65C965;
+  background-color: #ffc64d;
 }
 
 
@@ -805,15 +822,15 @@ a:hover {
 
 .price.panel-red>.panel-heading {
   color: #fff;
-  background-color: #D04E50;
-  border-color: #FF6062;
-  border-bottom: 1px solid #FF6062;
+  background-color: #071C33;
+  border-color: #071C33;
+  border-bottom: 1px solid #071C33;
 }
 
 
 .price.panel-red>.panel-body {
   color: #fff;
-  background-color: #EF5A5C;
+  background-color: #092543;
 }
 
 
@@ -836,4 +853,8 @@ a:hover {
 
 #chartX {
   color: red;
+}
+
+.list-group{
+  color: #888a8c;
 }
