@@ -64,7 +64,7 @@ gulp.task('clean', function () {
     .pipe(plugins.clean());
 });
 
-gulp.task('lint', function() {
+gulp.task('lint', ['test'], function() {
   return gulp.src('./*.js')
     .pipe(plugins.jshint())
     .pipe(plugins.jshint.reporter('jshint-stylish'));
