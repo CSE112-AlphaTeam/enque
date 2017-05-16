@@ -10,6 +10,7 @@ var server = require('gulp-express');
 var Server = require('karma').Server;
 var browserSync = require('browser-sync');
 var mongobackup = require('mongobackup');
+var jasmine = require('gulp-jasmine');
 
 var plugins= require('gulp-load-plugins')({
 	pattern: ['gulp-*', 'gulp.*', 'check-*', 
@@ -53,18 +54,17 @@ function execute(command, callback) {
 /**
  * Run test once and exit
  */
-gulp.task('test', function (done) {
-  new Server({
-    configFile: __dirname + '/karma.conf.js'
-  }, done).start();
-});
+gulp.task('test',function () {
+    return gulp.src('test/test.js')
+        .pipe(jasmine()).on("error", function(){process.exit(1)});
+});;
 
 gulp.task('clean', function () {
   return gulp.src('build', {read: false})
     .pipe(plugins.clean());
 });
 
-gulp.task('lint', function() {
+gulp.task('lint', ['test'], function() {
   return gulp.src('./*.js')
     .pipe(plugins.jshint())
     .pipe(plugins.jshint.reporter('jshint-stylish'));
@@ -204,13 +204,15 @@ gulp.task('default', ['browser-sync']);
 var karma = require('karma').server;
 /**
  * Run test once and exit
- */
+ 
 gulp.task('test', function (done) {
   karma.start({
     configFile: __dirname + '/karma.conf.js',
     singleRun: true
   }, done);
 });
+*/
+
 
 // prerequisites - must have heroku command line tools installed
 //               - must be authenticated with heroku

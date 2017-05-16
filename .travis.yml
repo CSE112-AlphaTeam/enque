@@ -2,7 +2,6 @@ notifications:
   email: false
   slack:
     rooms:
-    - cse112-alphateam:bjfz7Qlh7uNaWemWc2Khf6wS#pre-assignment
     - cse112-alphateam:bjfz7Qlh7uNaWemWc2Khf6wS#testing
     on_success: change
     on_failure: always
@@ -19,6 +18,3 @@ before_script:
 
 script:
   gulp test
-
-#after_success:
-  #- ./deploy.sh
