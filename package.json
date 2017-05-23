@@ -7,7 +7,8 @@
   "scripts": {
     "build": "gulp",
     "start": "node ./bin/www",
-    "test": "gulp test"
+    "test": "gulp test",
+    "test-e2e": "nightwatch"
   },
   "dependencies": {
     "async": "^0.9.0",
@@ -67,6 +68,7 @@
     "karma-chrome-launcher": "^0.1.12",
     "karma-jasmine": "^0.3.8",
     "mongobackup": "^0.1.9",
+    "nightwatch": "^0.9.15",
     "yargs": "^3.4.4"
   },
   "engines": {
