@@ -11,6 +11,7 @@ var Server = require('karma').Server;
 var browserSync = require('browser-sync');
 var mongobackup = require('mongobackup');
 var jasmine = require('gulp-jasmine');
+var nightwatch = require('gulp-nightwatch'); // task on line 201
 
 var plugins= require('gulp-load-plugins')({
 	pattern: ['gulp-*', 'gulp.*', 'check-*', 
@@ -197,9 +198,17 @@ gulp.task('mongorestore', function() {
   });
 });
 
+// NightWatch
+gulp.task('night', function() {
+  return gulp.src('')
+    .pipe(nightwatch({
+      configFile: './nightwatch.json'
+    })).on("error", function(){process.exit(1)});
+});
 
 
-gulp.task('default', ['browser-sync']);
+
+gulp.task('default', ['browser-sync','night']);
 
 var karma = require('karma').server;
 /**
