@@ -11,8 +11,8 @@ module.exports = {
       .setValue('#name', 'Nikan Aminian')
       .setValue('#email', 'naminian@ucsd.edu')
       .setValue('#message','Everything works great!')
-      .submitForm('#contact_form')
       .pause(3000)
+      .submitForm('#contact_form')
       .end();
   }
 }

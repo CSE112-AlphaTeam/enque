@@ -11,13 +11,13 @@ var Server = require('karma').Server;
 var browserSync = require('browser-sync');
 var mongobackup = require('mongobackup');
 var jasmine = require('gulp-jasmine');
-var nightwatch = require('gulp-nightwatch'); // task on line 201
+var nightwatch = require('gulp-nightwatch');
 
 var plugins= require('gulp-load-plugins')({
-	pattern: ['gulp-*', 'gulp.*', 'check-*', 
-	'jasmine-*', 'mongobackup', 'karma', 'karma-*', 'yargs'],
-	scope: ['dependencies', 'devDependencies'],
-	lazy: false
+  pattern: ['gulp-*', 'gulp.*', 'check-*',
+  'jasmine-*', 'mongobackup', 'karma', 'karma-*', 'yargs'],
+  scope: ['dependencies', 'devDependencies'],
+  lazy: false
 
 });
 
@@ -55,6 +55,7 @@ function execute(command, callback) {
 /**
  * Run test once and exit
  */
+
 gulp.task('test',function () {
     return gulp.src('test/test.js')
         .pipe(jasmine()).on("error", function(){process.exit(1)});
@@ -84,10 +85,10 @@ gulp.task('vendor', function() {
 //gulp.task('build', ['vendor'], function() {
 gulp.task('build-concat', ['vendor'], function() {
   return gulp.src('./public/stylesheets/*.css')
-	.pipe(plugins.minifyCss({keepBreaks:false}))
-    	.pipe(plugins.rename('style.min.css'))
-    	.pipe(gulp.dest('./build/concat/stylesheets/'));
-	});
+  .pipe(plugins.minifyCss({keepBreaks:false}))
+      .pipe(plugins.rename('style.min.css'))
+      .pipe(gulp.dest('./build/concat/stylesheets/'));
+  });
 
 gulp.task('compress', function() {
   gulp.src('./public/javascripts/*.js')
@@ -146,9 +147,7 @@ gulp.task('nodemon', ['lint'], function (cb) {
         }
     });
 });
-
 gulp.task('mongoend', function() {
-
     child_process.exec("mongo --eval 'db.shutdownServer()' admin", function(err, stdout, stderr) {
         if(err) {
             console.log(err.stack);
@@ -207,7 +206,6 @@ gulp.task('night', function() {
 });
 
 
-
 gulp.task('default', ['browser-sync','night']);
 
 var karma = require('karma').server;
@@ -227,10 +225,10 @@ gulp.task('test', function (done) {
 //               - must be authenticated with heroku
 //               - must have git installed and be in application root directory
 //               - must be authenticated with git so that password does not have to be entered on push
-gulp.task('stage', ['test'], function(){ 
+gulp.task('stage', ['test'], function(){
     execute('git symbolic-ref --short HEAD', function(br){
         console.log('deploying current branch: ' + br);
-        var timer; 
+        var timer;
         return gulp.src('')
                 .pipe(plugins.shell([
                     '<%= setKillTimer() %>',
@@ -263,7 +261,7 @@ gulp.task('stage', ['test'], function(){
                         }
                     }
                 }));
-    }); 
+    });
 });
 
 // check pages on local
@@ -358,8 +356,8 @@ gulp.task('apidoc', function(){
 var deploy = require('gulp-gh-pages');
 
 gulp.task('deploy-gh', function () {
-   	var currentdate = new Date();    
-	/*var timeString = currentdate.getDate() + "/"
+    var currentdate = new Date();
+  /*var timeString = currentdate.getDate() + "/"
                 + (currentdate.getMonth()+1)  + "/"
                 + currentdate.getFullYear() + " @ "
                 + currentdate.getHours() + ":"
