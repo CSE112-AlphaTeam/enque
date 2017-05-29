@@ -10,7 +10,7 @@ module.exports = {
     client
       .setValue('#email', 'peter@enque.com')
       .setValue('#password', 'peter')
-      // .submitForm('#contact_form')
+      .submitForm('#login_form')
       .pause(3000)
       .end();
   }
