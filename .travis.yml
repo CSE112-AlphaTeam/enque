@@ -1,0 +1,20 @@
+notifications:
+  email: false
+  slack:
+    rooms:
+    - cse112-alphateam:bjfz7Qlh7uNaWemWc2Khf6wS#testing
+    on_success: change
+    on_failure: always
+
+language: node_js
+
+node_js:
+  # Specifying the latest Node.js version.
+  "6"
+
+before_script:
+  - npm install -g gulp
+  #- npm install -g firebase-tools
+
+script:
+  gulp test
