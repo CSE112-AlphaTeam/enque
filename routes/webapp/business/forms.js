@@ -32,6 +32,6 @@ exports.get = function(req,res,next){
         title: 'Form Editor',
         isOwner: req.user[0].admin,
         businessId: req.user[0].business,
-        employees: "active"
+        forms: "active"
     });
 }
