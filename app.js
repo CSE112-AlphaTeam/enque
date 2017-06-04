@@ -69,16 +69,6 @@ var mobileAppointment = require('./routes/api/appointment');
 var mobileToken = require('./routes/api/mobiletoken');
 var business = require('./routes/api/business');
 
-
-
-//twilio sms
-var client  = require('twilio')('AC22bb7a19ba9017cbb32d1004a5d26d3b', 'a606fd1e68c689e603c139ed09fd1e7e');
-
-
-
-
-
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -149,6 +139,22 @@ app.use(function(req, res, next) {
 app.use('/office', require('./routes/webapp/checkin'));
 app.use('/', businessRoutes);
 
+app.get('/sms', function(req, res){
+
+    var client  = require('twilio')('AC22bb7a19ba9017cbb32d1004a5d26d3b', 'a606fd1e68c689e603c139ed09fd1e7e');
+    client.messages.create({
+        to: '+18183981882',
+        from: '+14243960165',
+        body: 'test'
+    }, function(err, data){
+        if(err)
+            console.log(err);
+        else
+            console.log(data);
+    }
+    );
+    
+});
 
 
 // Set Mobile Routes
@@ -196,20 +202,5 @@ app.use(function (err, req, res) {
 });
 
 
-//twilio sms
-app.get('/twilio', function(req, res){
-
-    client.sendMessage({
-        to: '+19099797821',
-        from: '+14243960165',
-        body: 'test'
-    }, function(err, data){
-        if(err)
-            console.log(err);
-        console.log(data);
-    }
-    );
-    
-});
 
 exports = module.exports = app;
