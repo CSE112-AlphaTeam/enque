@@ -84,11 +84,11 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label inputLast">Last Name</label>
-                        <input type="lastName" id="inputLast" name="inputLast" value="{{ inputLast }}" class="form-control" required autofocus>
+                        <input type="lastName" id="inputLast" name="inputLast" value="{{ inputLast }}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label class="control-label inputDOB">Phone Number</label>
-                        <input type="phone" id="inputPhone" name="inputPhone" value="{{ inputPhone }}" class="form-control" placeholder='(xxx) xxx-xxxx' required autofocus>
+                        <input type="tel" pattern="^\(\d{3}\)\s\d{3}-\d{4}" id="inputPhone" name="inputPhone" value="{{ inputPhone }}" class="form-control" placeholder='(xxx) xxx-xxxx' required>
                     </div>
                     <div class="checkbox">
                         <label>

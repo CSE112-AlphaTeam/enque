@@ -1,0 +1,80 @@
+<!--START BOOTSTRAP-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--END BOOTSTRAP-->
+
+<!--DateTimePicker-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/smalot-bootstrap-datetimepicker/2.4.4/css/bootstrap-datetimepicker.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/smalot-bootstrap-datetimepicker/2.4.4/js/bootstrap-datetimepicker.js"></script>
+
+<!--Font Awesome-->
+<script src="https://use.fontawesome.com/061a6756a8.js"></script>
+
+
+
+<section class="content-header">
+  <h1>Schedule Appointment </h1>
+  <div id="txt" class="pull-right"></div>
+  <h1 class="pull-right" id="currentDate"></h1>
+</section>
+
+<section class="content">
+
+  <div id="formatDisplay">
+    <form id="apptForm" class="form-format" onsubmit="alert('submitted');" action="#">
+
+      <div class="col-md-6">
+
+        <div class="box-body">
+
+          <label for="firstName">First Name:</label>
+          <input type="text" id="inputFirstName" class="form-control" required autofocus />
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="inputLastName" class="form-control" required />
+          <label for="phoneNum">Phone Number:</label>
+          <input type="tel" pattern="^\(\d{3}\)\s\d{3}-\d{4}" id="inputPhoneNum" placeholder="(xxx) xxx-xxxx" class="form-control" required />
+        </div>
+      </div>
+
+      <div class="col-md-6">
+
+        <div class="box-body">
+          <label for="date">Date & Time:</label>
+          <div id="date" class="input-group date form_datetime">
+            <input class="form-control" type="text" value="" form="apptForm" readonly required>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+          </div>
+
+          <label for="notes">Additional Notes:</label><br />
+          <textarea id="notes" placeholder="Enter text here..." cols="70" rows="5" style="resize: none;" required></textarea>
+
+          <!--START DateTimePicker code-->
+          <script type="text/javascript">
+          $(".form_datetime").datetimepicker({
+            format: "dd MM yyyy - hh:ii",
+            autoclose: true,
+            pickerPosition: "bottom-left",
+            clearBtn: true,
+            todayHighlight: true,
+            showMeridian: true,
+            fontAwesome: true
+
+          });
+          </script>
+          <!-- END DateTimePicker code-->
+
+        </div>
+      </div>
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <button class="btn btn-lg btn-primary btn-block" type='submit'>Create Appointment</button>
+      </div>
+    </form>
+
+  </div>
+
+
+</section>

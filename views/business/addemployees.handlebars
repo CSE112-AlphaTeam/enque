@@ -32,7 +32,7 @@
                                             <label for="Email">Email</label>
                                             <input type="email" id="inputEmail" name="inputEmail" value="{{ email }}" class="form-control" required>
                                             <label for="Phone">Phone</label>
-                                            <input type="phone" id="inputPhone" name="inputPhone" value="{{ phone }}" class="form-control" required>
+                                            <input type="tel" pattern="^\(\d{3}\)\s\d{3}-\d{4}" placeholder="(xxx) xxx-xxxx" id="inputPhone" name="inputPhone" value="{{ phone }}" class="form-control" required>
                                         </div>
                                         <input class="btn btn-block btn-primary btn-lg btn-flat" name="submit" id="submit" type="submit" href="/addemployees" value="Add Employee">
                                     </form>
