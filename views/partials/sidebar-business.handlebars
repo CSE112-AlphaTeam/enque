@@ -40,6 +40,14 @@
                 </a>
             </li>
             {{/if}}
+            {{#if isOwner}}
+            <li class="{{schedule}} treeview">
+                <a href="/schedule">
+                    <i class="fa fa-calendar"></i>
+                    <span>Schedule Appointment</span>
+                </a>
+            </li>
+            {{/if}}
 
             <li class="{{settings}} treeview">
                 <a href="/accountSettings">

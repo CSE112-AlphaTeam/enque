@@ -14,10 +14,10 @@ var jasmine = require('gulp-jasmine');
 var nightwatch = require('gulp-nightwatch');
 
 var plugins= require('gulp-load-plugins')({
-  pattern: ['gulp-*', 'gulp.*', 'check-*',
-  'jasmine-*', 'mongobackup', 'karma', 'karma-*', 'yargs'],
-  scope: ['dependencies', 'devDependencies'],
-  lazy: false
+	pattern: ['gulp-*', 'gulp.*', 'check-*',
+	'jasmine-*', 'mongobackup', 'karma', 'karma-*', 'yargs'],
+	scope: ['dependencies', 'devDependencies'],
+	lazy: false
 
 });
 
@@ -356,8 +356,8 @@ gulp.task('apidoc', function(){
 var deploy = require('gulp-gh-pages');
 
 gulp.task('deploy-gh', function () {
-    var currentdate = new Date();
-  /*var timeString = currentdate.getDate() + "/"
+   	var currentdate = new Date();
+	/*var timeString = currentdate.getDate() + "/"
                 + (currentdate.getMonth()+1)  + "/"
                 + currentdate.getFullYear() + " @ "
                 + currentdate.getHours() + ":"

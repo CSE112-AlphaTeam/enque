@@ -28,10 +28,10 @@ exports.get = function(req,res,next){
     var inputPhone = req.body.inputPhone;
 
 
-        res.render('business/forms', {
-        title: 'Form Editor',
+        res.render('business/schedule', {
+        title: 'Schedule Appointment',
         isOwner: req.user[0].admin,
         businessId: req.user[0].business,
-        forms: "active"
+        schedule: "active"
     });
 }

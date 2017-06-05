@@ -1,7 +1,11 @@
+<!--jQuery & jQuery Mask Plugin-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.js"></script>
+
 <section class="content-header">
     <h1>Settings </h1>
-    <h1 class="" id="currentDate"></h1>
-    <div id="txt" class=""></div>
+    <div id="txt" class="pull-right"></div>
+    <h1 class="pull-right" id="currentDate"></h1>
 </section>
 
 <section class="content">
@@ -52,7 +56,7 @@
                         </div>
                     </div>
                     <div class='box-footer'>
-                        <button type="submit" class="btn btn-primary pull-right">Update</button>
+                        <button type="submit" id="submitEditPass" name="submitEditPass" class="btn btn-primary pull-right">Update</button>
                     </div>
                 </form>
             </div>
@@ -76,11 +80,16 @@
                         </div>
                         <div class="form-group">
                             <label >Phone Number</label>
-                            <input type="text" id="editPassword" name="editPhone" value="{{phone}}" class="form-control" required>
+                            <input type="tel" pattern="^\(\d{3}\)\s\d{3}-\d{4}" placeholder="(xxx) xxx-xxxx" id="editPhone" name="editPhone" value="{{phone}}" class="form-control" required>
                         </div>
                     </div>
+                    <!--START US Phone# Mask-->
+                    <script>
+                      $(document.getElementById('editPhone')).mask('(000) 000-0000');
+                    </script>
+                    <!--END US Phone# Mask-->
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-primary pull-right">Update</button>
+                        <button type="submit" id="submitUpdateContact" name="submitUpdateContact" class="btn btn-primary pull-right">Update</button>
                     </div>
 
                 </form>
@@ -192,11 +201,16 @@
                             </div>
                             <div class="form-group">
                                 <label >Phone Number</label>
-                                <input type="text" id="phone" name ="phone"class="form-control input-lg" value="{{companyPhone}}" required>
+                                <input type="tel" pattern="^\(\d{3}\)\s\d{3}-\d{4}" placeholder="(xxx) xxx-xxxx" id="phone" name ="phone" class="form-control input-lg" value="{{companyPhone}}" required>
                             </div>
                         </div>
+                        <!--START US Phone# Mask-->
+                        <script>
+                          $(document.getElementById('phone')).mask('(000) 000-0000');
+                        </script>
+                        <!--END US Phone# Mask-->
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-primary pull-right">Update</button>
+                            <button type="submit" id="submitCompanyInfo" name="submitCompanyInfo" class="btn btn-primary pull-right">Update</button>
                         </div>
                     </form>
                 </div>

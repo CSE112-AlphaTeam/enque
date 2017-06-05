@@ -1,6 +1,9 @@
+<!--jQuery & jQuery Mask Plugin-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.js"></script>
 
 <section class="content-header">
-    <h1>Dashboard </h1>
+    <h1>Employees </h1>
     <div id="txt" class="pull-right"></div>
     <h1 class="pull-right" id="currentDate"></h1>
 </section>
@@ -34,9 +37,14 @@
                                             <label for="Email">Email</label>
                                             <input type="email" id="inputEmail" name="inputEmail" value="{{ email }}" class="form-control" required>
                                             <label for="Phone">Phone</label>
-                                            <input type="phone" id="inputPhone" name="inputPhone" value="{{ phone }}" class="form-control" required>
+                                            <input type="tel" pattern="^\(\d{3}\)\s\d{3}-\d{4}" placeholder="(xxx) xxx-xxxx" id="inputPhone" name="inputPhone" value="{{ phone }}" class="form-control" required>
                                         </div>
-                                        <input class="btn btn-block btn-primary btn-lg btn-flat" name="submit" type="submit" href="/addemployees" value="Add Employee">
+                                        <!--START US Phone# Mask-->
+                                        <script>
+                                          $(document.getElementById('inputPhone')).mask('(000) 000-0000');
+                                        </script>
+                                        <!--END US Phone# Mask-->
+                                        <input class="btn btn-block btn-primary btn-lg btn-flat" name="submit" id="submit" type="submit" href="/addemployees" value="Add Employee">
                                     </form>
                                 </div>
                             </div>
