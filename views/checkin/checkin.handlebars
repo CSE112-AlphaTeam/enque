@@ -8,6 +8,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
+    <!--jQuery & jQuery Mask Plugin-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.js"></script>
+
     <style>
     body, h1, h2, h3, h4, h5, h6 {
         /*color: {{containerText}} !important;*/
@@ -90,6 +93,11 @@
                         <label class="control-label inputDOB">Phone Number</label>
                         <input type="tel" pattern="^\(\d{3}\)\s\d{3}-\d{4}" id="inputPhone" name="inputPhone" value="{{ inputPhone }}" class="form-control" placeholder='(xxx) xxx-xxxx' required>
                     </div>
+                    <!--START US Phone# Mask-->
+                    <script>
+                      $(document.getElementById('inputPhone')).mask('(000) 000-0000');
+                    </script>
+                    <!--END US Phone# Mask-->
                     <div class="checkbox">
                         <label>
                         <!-- <label class="control-label inputDOB">New Patient?</label> -->

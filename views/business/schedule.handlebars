@@ -13,7 +13,8 @@
 <!--Font Awesome-->
 <script src="https://use.fontawesome.com/061a6756a8.js"></script>
 
-
+<!--jQuery Mask Plugin-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.js"></script>
 
 <section class="content-header">
   <h1>Schedule Appointment </h1>
@@ -38,6 +39,12 @@
           <input type="tel" pattern="^\(\d{3}\)\s\d{3}-\d{4}" id="inputPhoneNum" placeholder="(xxx) xxx-xxxx" class="form-control" required />
         </div>
       </div>
+
+      <!--START US Phone# Mask-->
+      <script>
+        $(document.getElementById('inputPhoneNum')).mask('(000) 000-0000');
+      </script>
+      <!--END US Phone# Mask-->
 
       <div class="col-md-6">
 

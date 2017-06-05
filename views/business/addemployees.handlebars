@@ -1,3 +1,7 @@
+<!--jQuery & jQuery Mask Plugin-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.js"></script>
+
 <section class="content-header">
     <h1>Employees </h1>
     <div id="txt" class="pull-right"></div>
@@ -34,6 +38,11 @@
                                             <label for="Phone">Phone</label>
                                             <input type="tel" pattern="^\(\d{3}\)\s\d{3}-\d{4}" placeholder="(xxx) xxx-xxxx" id="inputPhone" name="inputPhone" value="{{ phone }}" class="form-control" required>
                                         </div>
+                                        <!--START US Phone# Mask-->
+                                        <script>
+                                          $(document.getElementById('inputPhone')).mask('(000) 000-0000');
+                                        </script>
+                                        <!--END US Phone# Mask-->
                                         <input class="btn btn-block btn-primary btn-lg btn-flat" name="submit" id="submit" type="submit" href="/addemployees" value="Add Employee">
                                     </form>
                                 </div>
