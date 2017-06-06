@@ -139,12 +139,13 @@ app.use(function(req, res, next) {
 app.use('/office', require('./routes/webapp/checkin'));
 app.use('/', businessRoutes);
 
+//SMS api for twilio and api.ai
 app.get('/sms', function(req, res){
 
-    var client  = require('twilio')('AC22bb7a19ba9017cbb32d1004a5d26d3b', 'a606fd1e68c689e603c139ed09fd1e7e');
+    var client  = require('twilio')('AC25fa0bed39ca0b79e61b4740c730dcbd', '931ca60c934f47644d9eb549b10b943b');
     client.messages.create({
-        to: '+18183981882',
-        from: '+14243960165',
+        to: '+19099797821',
+        from: '+19094431571',
         body: 'test'
     }, function(err, data){
         if(err)
@@ -154,6 +155,33 @@ app.get('/sms', function(req, res){
     }
     );
     
+});
+
+app.post('/appointment-info', function(req, res) {
+    var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
+    return res.json({
+        speech: speech,
+        displayText: speech,
+        source: 'webhook-echo-sample'
+    });
+});
+
+app.post('/appointment-save', function(req, res) {
+    if(req.body.result && req.body.result.parameters && req.body.result.parameters.business_id && req.body.result.parameters.appointment_time && req.body.result.parameters.phone_number)
+    {
+        const appointments = db.get('appointments');
+        appointments.insert(
+            {
+               business_id: req.body.result.parameters.business_id,
+               appointment_time: req.body.result.parameters.appointment_time,
+               contact_number: req.body.result.parameters.phone_number
+                
+            },
+            
+            function(err, doc) { if (err) console.log(err);}
+        );
+    }
+        
 });
 
 
