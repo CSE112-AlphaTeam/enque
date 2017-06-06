@@ -157,7 +157,6 @@ app.get('/sms', function(req, res){
     );
     
 });
-*/
 
 app.post('/appointment-save', function(req, res) {
     if(req.body.result && req.body.result.parameters && req.body.result.parameters.business_id && req.body.result.parameters.appointment_time && req.body.result.parameters.phone_number)
@@ -176,6 +175,7 @@ app.post('/appointment-save', function(req, res) {
     }
         
 });
+*/
 
 
 // Set Mobile Routes
@@ -186,6 +186,7 @@ app.use('/api/m/mobiletoken', mobileToken);
 app.use('/api/m/business', business);
 app.use('/api/m/example', require('./routes/api/example'));
 app.use('/api', require('./routes/webapi'));
+app.use('/api/sms', require('./routes/api/sms'));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
