@@ -140,6 +140,7 @@ app.use('/office', require('./routes/webapp/checkin'));
 app.use('/', businessRoutes);
 
 //SMS api for twilio and api.ai
+/*
 app.get('/sms', function(req, res){
 
     var client  = require('twilio')('AC25fa0bed39ca0b79e61b4740c730dcbd', '931ca60c934f47644d9eb549b10b943b');
@@ -156,15 +157,7 @@ app.get('/sms', function(req, res){
     );
     
 });
-
-app.post('/appointment-info', function(req, res) {
-    var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
-    return res.json({
-        speech: speech,
-        displayText: speech,
-        source: 'webhook-echo-sample'
-    });
-});
+*/
 
 app.post('/appointment-save', function(req, res) {
     if(req.body.result && req.body.result.parameters && req.body.result.parameters.business_id && req.body.result.parameters.appointment_time && req.body.result.parameters.phone_number)
