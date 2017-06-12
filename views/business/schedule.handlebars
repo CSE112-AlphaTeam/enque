@@ -25,18 +25,18 @@
 <section class="content">
 
   <div id="formatDisplay">
-    <form id="apptForm" class="form-format" onsubmit="alert('submitted');" action="#">
+    <form id="apptForm" class="form-format" action="/api/schedule" method="post">
 
       <div class="col-md-6">
 
         <div class="box-body">
 
           <label for="firstName">First Name:</label>
-          <input type="text" id="inputFirstName" class="form-control" required autofocus />
+          <input type="text" id="inputFirstName" name="first_name" class="form-control" required autofocus />
           <label for="lastName">Last Name:</label>
-          <input type="text" id="inputLastName" class="form-control" required />
+          <input type="text" id="inputLastName" name="last_name" class="form-control" required />
           <label for="phoneNum">Phone Number:</label>
-          <input type="tel" pattern="^\(\d{3}\)\s\d{3}-\d{4}" id="inputPhoneNum" placeholder="(xxx) xxx-xxxx" class="form-control" required />
+          <input type="tel" pattern="^\(\d{3}\)\s\d{3}-\d{4}" id="inputPhoneNum" name="phone" placeholder="(xxx) xxx-xxxx" class="form-control" required />
         </div>
       </div>
 
@@ -51,12 +51,12 @@
         <div class="box-body">
           <label for="date">Date & Time:</label>
           <div id="date" class="input-group date form_datetime">
-            <input class="form-control" type="text" value="" form="apptForm" readonly required>
+            <input class="form-control" type="text" name="time" value="" form="apptForm" readonly required>
             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
           </div>
 
           <label for="reason">Reason for Appointment:</label><br />
-          <textarea id="reason" placeholder="Enter text here..." cols="70" rows="5" style="resize: none;" required></textarea>
+          <textarea id="reason" name="reason" placeholder="Enter text here..." cols="70" rows="5" style="resize: none;" required></textarea>
 
           <!--START DateTimePicker code-->
           <script type="text/javascript">
@@ -82,6 +82,45 @@
     </form>
 
   </div>
+  
+  <!-- below is for sms chat bot validation -->
+  <script type="text/javascript">
+    var frm = $('#apptForm');
+
+    frm.submit(function (e) {
+
+        e.preventDefault();
+
+        alert('submited');
+
+        $.ajax({
+            type: frm.attr('method'),
+            url: frm.attr('action'),
+            data: frm.serialize(),
+            success: function (data) {
+                if(!alert('Use this code to validate you phone: '+ data.code));
+                {
+                    $.ajax({
+                        type: "POST",
+                        url: "/sms",
+                        data: frm.serialize(),
+                        success: function (data) {
+                            console.log('message sent to user');
+                        },
+                        error: function (data) {
+                            console.log('An error occurred.');
+                            console.log(data);
+                        },
+                    });
+                }
+            },
+            error: function (data) {
+                console.log('An error occurred.');
+                console.log(data);
+            },
+        });
+    });
+</script>
 
 
 </section>
