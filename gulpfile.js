@@ -11,6 +11,7 @@ var Server = require('karma').Server;
 var browserSync = require('browser-sync');
 var mongobackup = require('mongobackup');
 var jasmine = require('gulp-jasmine');
+var nightwatch = require('gulp-nightwatch');
 
 var plugins= require('gulp-load-plugins')({
 	pattern: ['gulp-*', 'gulp.*', 'check-*',
@@ -84,10 +85,10 @@ gulp.task('vendor', function() {
 //gulp.task('build', ['vendor'], function() {
 gulp.task('build-concat', ['vendor'], function() {
   return gulp.src('./public/stylesheets/*.css')
-	.pipe(plugins.minifyCss({keepBreaks:false}))
-    	.pipe(plugins.rename('style.min.css'))
-    	.pipe(gulp.dest('./build/concat/stylesheets/'));
-	});
+  .pipe(plugins.minifyCss({keepBreaks:false}))
+      .pipe(plugins.rename('style.min.css'))
+      .pipe(gulp.dest('./build/concat/stylesheets/'));
+  });
 
 gulp.task('compress', function() {
   gulp.src('./public/javascripts/*.js')
@@ -146,9 +147,7 @@ gulp.task('nodemon', ['lint'], function (cb) {
         }
     });
 });
-
 gulp.task('mongoend', function() {
-
     child_process.exec("mongo --eval 'db.shutdownServer()' admin", function(err, stdout, stderr) {
         if(err) {
             console.log(err.stack);
@@ -198,9 +197,16 @@ gulp.task('mongorestore', function() {
   });
 });
 
+// NightWatch
+gulp.task('night', function() {
+  return gulp.src('')
+    .pipe(nightwatch({
+      configFile: './nightwatch.json'
+    })).on("error", function(){process.exit(1)});
+});
 
 
-gulp.task('default', ['browser-sync']);
+gulp.task('default', ['browser-sync','night']);
 
 var karma = require('karma').server;
 /**
