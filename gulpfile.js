@@ -175,6 +175,9 @@ gulp.task('browser-sync', ['nodemon'/*, 'mongostart', 'watch-check'*/], function
     //Change whether browser will auto open
     open: true,
 
+		//The small pop-over notifications in the browser are not always needed/wanted.
+		notify: false,
+
     // open the proxied app in chrome
     //browser: ['google chrome']
   });
@@ -208,10 +211,11 @@ gulp.task('night', function() {
 
 gulp.task('default', ['browser-sync','night']);
 
+
 var karma = require('karma').server;
 /**
  * Run test once and exit
- 
+
 gulp.task('test', function (done) {
   karma.start({
     configFile: __dirname + '/karma.conf.js',
