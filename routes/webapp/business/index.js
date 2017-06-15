@@ -14,7 +14,7 @@ var employeeRegister = require('./employeeregister');
 var businesssetting = require('./businesssetting');
 var formbuilder = require('./forms');
 var schedule = require('./schedule');
-var errorReport = require('./errorReport');
+var errorreport = require('./errorreport');
 var adminErrors = require('./adminErrors');
 
 
@@ -41,7 +41,7 @@ module.exports = function (passport) {
 
     router.get('/register', register.get);
     router.get('/forms', isLoggedInBusiness, formbuilder.get);
-    router.get('/errorReport', isLoggedInBusiness, errorReport.get);
+    router.get('/errorreport', isLoggedInBusiness, errorreport.get);
     router.get('/adminErrors', isLoggedInBusiness, adminErrors.get);
 
     router.get('/schedule', isLoggedInBusiness, schedule.get);
