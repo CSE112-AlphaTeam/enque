@@ -15,7 +15,7 @@ var _ = require('underscore');
  * @description grab our db object from the request and query the collection
  * @param req The req parameter used to access the database
  * @param res 
- * @return res.json(200, users);
+ * @returns {JSON} An array of fieldObjects representing the users
  */
  
 exports.index = function(req, res) {
@@ -35,7 +35,7 @@ exports.index = function(req, res) {
  * @description Create the user
  * @param req The req parameter used to access the database
  * @param res 
- * @return res.json(201, users);
+ * @returns {JSON} An array of fieldObjects representing the doc;
  */
 exports.create = function(req, res) {
 
@@ -54,7 +54,7 @@ exports.create = function(req, res) {
  * @description Get a single user
  * @param req The req parameter used to access the database
  * @param res 
- * @return res.json(201, users);
+ * @returns {JSON} An array of fieldObjects representing the doc;
  */
 exports.show = function(req, res) {
 
@@ -80,7 +80,7 @@ exports.update = function(req, res) {
  * @description Deletes a thing from the DB
  * @param req The req parameter used to access the database
  * @param res 
- * @return res.json(201, users);
+ * @returns {Status};
  */
 exports.destroy = function(req, res) {
   // grab our db object from the request
@@ -98,7 +98,7 @@ exports.destroy = function(req, res) {
  * @description Handle Errors by sending status
  * @param res 
  * @param err
- * @return res.sendStatus;
+ * @returns Error Status;
  */
 function handleError(res, err) {
   return res.sendStatus(500, err);
