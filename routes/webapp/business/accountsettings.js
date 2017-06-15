@@ -6,7 +6,7 @@ var imgur = require('imgur');
 imgur.setClientId('b67dffd2dbe1ea5');
 
 /**
- * Takes an req parameter and res parameter and returns the details of a particular employee.
+ * @description Takes an req parameter and res parameter and returns the details of a particular employee.
  *
  * @param req The req parameter used to access the database,
  * @returns title, fname, lname, password, phone, email, smsNotify, emailNotify
@@ -18,7 +18,7 @@ exports.get = function (req,res) {
     var employees = db.get('employees');
     var businesses = db.get('businesses');
 
-    businesses.findById(businessID,
+    businesses.findOne(businessID,
         function (err, business){
             if(err){
                 return next(err);
@@ -27,7 +27,7 @@ exports.get = function (req,res) {
             render(req, res, {
                 message: req.flash("permission"),
             });
-            
+
         }
     );
 
@@ -35,7 +35,7 @@ exports.get = function (req,res) {
 };
 
 /**
- * Takes an req parameter and res parameter and returns the details of a particular employee. The user
+ * @description Takes an req parameter and res parameter and returns the details of a particular employee. The user
  * is then prompted to change any of the information presented.
  *
  * @param req The req parameter used to access the database,
@@ -76,7 +76,7 @@ exports.post = function (req, res) {
                     return;
                 } else {
 
-                    employees.findAndModify({_id: eid}, {$set: {password: hashedInputPass}}, function (err, data) {
+                    employees.findOneAndUpdate({_id: eid}, {$set: {password: hashedInputPass}}, function (err, data) {
                         if (err) {
                             return handleError(res, err);
                         }
@@ -93,14 +93,13 @@ exports.post = function (req, res) {
 
     if (inputPhone != null || inputEmail != null || inputName != null)
     {
-    
+
 
 
         var setContactInfo = {};
 
         if (inputPhone != null) {
-            inputPhone = inputPhone.replace(/-/g, '');
-            if (inputPhone.length === 10) {
+            if (inputPhone.length === 14) {
                 inputPhone = '1' + inputPhone;
             } else {
                 render(req, res, {
@@ -128,7 +127,7 @@ exports.post = function (req, res) {
             }
         }
 
-        employees.findAndModify({_id: eid}, { $set: setContactInfo}, function(err, data)
+        employees.findOneAndUpdate({_id: eid}, { $set: setContactInfo}, function(err, data)
         {
             if (err) { return handleError(res, err);}
 
@@ -151,10 +150,10 @@ exports.post = function (req, res) {
             var smsSet = true;
         }
 
-        employees.findAndModify({_id: eid}, { $set: {smsNotify: smsSet}}, function(err, data)
+        employees.findOneAndUpdate({_id: eid}, { $set: {smsNotify: smsSet}}, function(err, data)
         {
             if (err) { return handleError(res, err);}
-	        
+
             render(req, res, {
                 edited: 'SMS notification settings successfully changed!'
             });
@@ -172,7 +171,7 @@ exports.post = function (req, res) {
             var emailSet = true;
         }
 	    //find the appropriate employee to set the email and notification settings
-        employees.findAndModify({_id: eid}, { $set: {emailNotify: emailSet}}, function(err, data)
+        employees.findOneAndUpdate({_id: eid}, { $set: {emailNotify: emailSet}}, function(err, data)
         {
             if (err) { return handleError(res, err);}
 
@@ -184,6 +183,12 @@ exports.post = function (req, res) {
 
 };
 
+/**
+ * @description Takes an req parameter and res parameter and sets company information to what user inputs when logging in
+ *
+ * @param req The req parameter used to access the database,
+ * @returns N/A
+ */
 exports.setCompanyInfo = function (req, res) {
 
 
@@ -201,9 +206,8 @@ exports.setCompanyInfo = function (req, res) {
         var setCompanyInfo = {};
 
         if (phone != null) {
-            phone = phone.replace(/-/g, '');
-            if (phone.length === 10) {
-                phone = '1' + phone;
+            if (phone.length === 14) {
+                phone = phone;
             } else {
                 render(req, res, {
                     alert: 'Incorrect phone number format'
@@ -231,7 +235,12 @@ exports.setCompanyInfo = function (req, res) {
 
 };
 
-
+/**
+ * @description Takes an req parameter and res parameter and adds functionality to upload and render new Company Logo
+ *
+ * @param req The req parameter used to access the database,
+ * @returns N/A
+ */
 exports.uploadLogo = function(req, res, next){
 
     var db = req.db;
@@ -240,7 +249,7 @@ exports.uploadLogo = function(req, res, next){
 
     if(req.files.userLogo){
 
-        businesses.findById(businessID,
+        businesses.findOne(businessID,
             function (err, results){
 
                 if(err){
@@ -276,7 +285,7 @@ exports.uploadLogo = function(req, res, next){
             });
 
     } else {
-        businesses.findById(businessID,
+        businesses.findOne(businessID,
             function (err, results){
                 if(err){
                     return next(err);
@@ -301,7 +310,7 @@ exports.uploadLogo = function(req, res, next){
 
 
 /**
- * Helper function to render the settings page
+ * @description Helper function to render the settings page
  *
  * @param req
  * @param res
@@ -314,7 +323,7 @@ function render(req, res, additionalFields) {
     var employees = db.get('employees');
     var businesses = db.get('businesses');
 
-    businesses.findById(businessID,
+    businesses.findOne(businessID,
         function (err, business){
             if(err){
                 return next(err);

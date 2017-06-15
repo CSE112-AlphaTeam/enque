@@ -12,7 +12,7 @@
 var _ = require('underscore');
 
 /**
- * Request a form.
+ * @description Request a form.
  * GET /api/m/form/:id
  *
  * @param req req.db A database object.
@@ -45,7 +45,7 @@ exports.show = function (req, res, next) {
 };
 
 /**
- * Create a form.
+ * @description Create a form.
  * PUT /api/m/form/
  *
  * @param req req.body The form in JSON format
@@ -71,7 +71,7 @@ exports.createForm = function (req, res, next) {
 
 
 /**
- * Send a form response.
+ * @description Send a form response.
  * POST /api/m/form/formResponse/
  *
  * @param req req.db A database object.

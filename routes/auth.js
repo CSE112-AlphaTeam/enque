@@ -11,7 +11,13 @@ module.exports = function(passport){
     // =====================================
     // show the login form
 
-
+/**
+ * @description Show the Login Form. Render the page and pass in any flash data if it exists
+ *
+ * @param req
+ * @param res
+ * @returns N/A
+ */
 
 router.get('/signup', function(req, res) {
 
@@ -21,7 +27,13 @@ router.get('/signup', function(req, res) {
 
 
 
-// process the signup form
+/**
+ * @description Process the signup form 
+ *
+ * @param req
+ * @param res
+ * @returns N/A
+ */
 router.post('/signup', passport.authenticate('local-signup', {
     successRedirect : '/profile', // redirect to the secure profile section
     failureRedirect : '/signup', // redirect back to the signup page if there is an error
@@ -35,6 +47,13 @@ router.get('/employeeregister',function (req,res){
 });
 
 
+/**
+ * @description Redirect to the secure profile section or redirect back to the signup page if there is an error
+ *
+ * @param req
+ * @param res
+ * @returns N/A
+ */
 router.post('/employeeregister',passport.authenticate('local-signup-employee',{
     successRedirect : '/config', // redirect to the secure profile section
     failureRedirect : '/' // redirect back to the signup page if there is an error
@@ -43,7 +62,12 @@ router.post('/employeeregister',passport.authenticate('local-signup-employee',{
 
 
 
-
+/**
+ * @description Get the user out of session and pass to template
+ * @param req
+ * @param res
+ * @returns N/A
+ */
 router.get('/profile', isLoggedIn, function(req, res) {
     res.render('auth/profile.hjs', {
         user : req.user // get the user out of session and pass to template
@@ -59,8 +83,14 @@ router.get('/profile', isLoggedIn, function(req, res) {
 // });
 
 
-
-// route middleware to make sure a user is logged in
+/**
+ * @description Route middleware to make sure a user is logged in. If user is authenticated in the session, carry on
+ * If they aren't redirect them to the home page
+ * @param req
+ * @param res
+ * @returns N/A
+ */
+ 
 function isLoggedIn(req, res, next) {
 
     // if user is authenticated in the session, carry on
@@ -71,6 +101,14 @@ function isLoggedIn(req, res, next) {
     res.redirect('/');
 }
 
+
+/**
+ * @description Route middleware to make sure a company is logged in. If user is authenticated in the session, carry on
+ * If they aren't redirect them to the home page
+ * @param req
+ * @param res
+ * @returns N/A
+ */
 function isLoggedInBusiness(req, res, next) {
 
     // if user is authenticated in the session, carry on

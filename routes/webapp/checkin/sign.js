@@ -1,5 +1,11 @@
 var style = require('./../../../lib/style.js');
 
+/**
+ *
+ * @description Render the checkin and sign buttons, verify that there are results and no errors
+ * @param req and res The two parameters passed in to get the apprporiate company info
+ * @returns N/A 
+ */
 exports.get = function(req, res, next) {
     var business = req.session.business;
 
@@ -16,6 +22,12 @@ exports.get = function(req, res, next) {
     });
 };
 
+/**
+ *
+ * @description Render the checkin and sign buttons, update the state of the appointment
+ * @param req and res The two parameters passed in to get the apprporiate company info
+ * @returns N/A 
+ */
 exports.post = function (req, res, next) {
     var sig = req.body.sig.trim();
     if (sig === '') {

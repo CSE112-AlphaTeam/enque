@@ -1,5 +1,5 @@
 
-
+<script src="/plugins/formBuilder/form-builder.min.js"></script>
 
 <section class="content-header">
     <h1>Form Editor </h1>
@@ -9,14 +9,17 @@
 
 <section class="content">
     <form method="POST">
-        <textarea id="fill-me-in"></textarea>
+      <div id="fb-editor"></div>
     </form>
-    {{>scripts}}
-    <script src="/plugins/formBuilder/form-builder.js"></script>
-    <script src="/plugins/jQueryUI/jquery-ui.js"></script>
-    <link rel="stylesheet" type="text/css" href="/plugins/formBuilder/form-builder.css">
-    <script>
-        $("#fill-me-in").formBuilder();
-    </script>
 </section>
 
+<script>
+  jQuery(function($){
+    var options = {
+      onSave: function(){
+        alert("Feature Coming Soon!");
+      },
+    };
+    $(document.getElementById('fb-editor')).formBuilder(options);
+  });
+</script>

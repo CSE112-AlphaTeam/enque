@@ -1,5 +1,11 @@
 var auth = require ('../../../lib/auth');
 
+
+/**
+ * @description Takes an req parameter and res parameter and allows user to change the details of a particular company.
+ * @param req The req parameter used to access the database,
+ * @returns N/A
+ */
 exports.post = function (req, res) {
     var db = req.db;
     var businesses = db.get('businesses');
@@ -21,7 +27,7 @@ exports.post = function (req, res) {
             //if input fields are empty
             if (companyName === '' || phone === '') {
                 phone = dbBusiness.phone;
-                //removing country code 1 from phone 
+                //removing country code 1 from phone
                 phone = phone.replace('1', '');
                 phone = phone.slice(0, 3) + '-' + phone.slice(3, 6) + '-' + phone.slice(6);
                 res.render('business/businesssetting', {
@@ -61,7 +67,7 @@ exports.post = function (req, res) {
                         error: 'phone number should be in 1 xxx-xxx-xxxx format'
                     });
                 }
-                
+
             }
         }// end of undefined password if statement
 
@@ -109,5 +115,5 @@ exports.post = function (req, res) {
 
     });
 
-    
-}; 
+
+};

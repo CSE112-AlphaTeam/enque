@@ -11,7 +11,12 @@
 
 var _ = require('underscore');
 
-
+/**
+ * @description grab our db object from the request and query the collection
+ * @param req The req parameter used to access the database
+ * @param res 
+ * @returns {JSON} An array of fieldObjects representing the users
+ */
 exports.index = function(req, res) {
 
   // grab our db object from the request
@@ -25,7 +30,12 @@ exports.index = function(req, res) {
   });
 };
 
-// Deletes a thing from the DB.
+/**
+ * @description Deletes a thing from the DB.
+ * @param req The req parameter used to access the database
+ * @param res 
+ * @returns {Status};
+ */
 exports.destroy = function(req, res) {
   // grab our db object from the request
   var db = req.db;
@@ -38,6 +48,12 @@ exports.destroy = function(req, res) {
   });
 };
 
+/**
+ * @description Handle Errors by sending status
+ * @param res 
+ * @param err
+ * @returns Error Status;
+ */
 function handleError(res, err) {
   return res.sendStatus(500, err);
 }
