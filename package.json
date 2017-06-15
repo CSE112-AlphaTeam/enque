@@ -1,8 +1,8 @@
 {
-  "name": "robobetty",
-  "version": "0.6.0",
-  "description": "apiDoc for Robobetty",
-  "title": "Robobetty API",
+  "name": "AlphaTeam",
+  "version": "2.0.0",
+  "description": "Documentation for AlphaTeam",
+  "title": "AlphaTeam API",
   "private": true,
   "scripts": {
     "build": "gulp",

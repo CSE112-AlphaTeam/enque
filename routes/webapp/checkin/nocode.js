@@ -2,6 +2,13 @@ var ObjectID = require('mongodb').ObjectID;
 var style = require('./../../../lib/style.js');
 
 
+/**
+ * @description Retrieves the business info and renders nocode page
+ * @param req
+ * @param res
+ * @param next
+ * @returns N/A
+ */
 exports.get = function (req, res, next) {
     var business = req.session.business;
     res.render('checkin/nocode', {
@@ -16,6 +23,14 @@ exports.get = function (req, res, next) {
     });
 };
 
+/**
+ * @description Tells the user appropriate format errors depending on what they 
+ * inputted incorrectly
+ * @param req
+ * @param res
+ * @param next
+ * @returns N/A
+ */
 exports.post = function (req, res, next) {
     var db = req.db;
 

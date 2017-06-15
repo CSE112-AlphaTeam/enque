@@ -1,6 +1,13 @@
 var style = require('./../../../lib/style.js');
 var request = require('request');
 
+/**
+ * @description Confirms whether or not the user is done with checking in
+ * @param req
+ * @param res
+ * @param next
+ * @returns N/A
+ */
 exports.get = function (req, res, next) {
     var business = req.session.business;
 
