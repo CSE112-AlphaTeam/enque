@@ -45,6 +45,7 @@ module.exports = function (passport) {
     router.get('/adminErrors', isLoggedInBusiness, adminErrors.get);
 
     router.get('/schedule', isLoggedInBusiness, schedule.get);
+    router.post('/schedule', isLoggedInBusiness, schedule.post);
     router.post('/register', passport.authenticate('local-signup', {
         successRedirect : '/dashboard', // redirect to the secure profile section
         failureRedirect : '/register' // redirect back to the signup page if there is an error
