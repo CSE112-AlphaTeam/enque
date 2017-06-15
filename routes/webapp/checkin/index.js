@@ -29,7 +29,11 @@ router.get('/:id/done', updateBusiness, done.get);
 module.exports = router;
 
 /**
- * Middleware to ensure that req.session.business contains info about the current business
+ * @description Middleware to ensure that req.session.business contains info about the current business
+ * @param req
+ * @param res
+ * @param next
+ * @returns Appropriate error messages
  */
 function updateBusiness(req, res, next) {
     //Simple case: first time on the page
