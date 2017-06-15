@@ -1,9 +1,11 @@
 {
-  "name": "AlphaTeam",
-  "version": "2.0.0",
+
+  "name": "Enque",
+  "version": "0.6.0",
+
   "description": "Mobile REST API",
-  "title": "Robobetty",
-  "url" : "https://www.robobetty.com/api",
+  "title": "Enque",
+  "url" : "http://alpha-team.herokuapp.com/api",
   "header": {
     "title": "Introduction",
     "filename": "apidoc_header.md"

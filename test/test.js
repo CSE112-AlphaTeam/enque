@@ -1,9 +1,10 @@
 "use strict";
 
-var foo_lib = require('../lib/auth.js');
+var appointment_controller = require('../routes/api/appointment');
+
 
 describe("Testing Unit Testing. ", function () {
   it("Return True", function () {
-    expect(true).toBe(true);
+   //var app = appointment_controller.index()
   });
 });
