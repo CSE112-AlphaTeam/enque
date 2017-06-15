@@ -58,7 +58,7 @@ function execute(command, callback) {
 /*
  * Testing Tasks
  */
-gulp.task('test', ['lint', 'night'], function () {
+gulp.task('test', ['lint'/*'night'*/], function () {
     return gulp.src('test/test.js')
         .pipe(jasmine()).on("error", function(){process.exit(1)});
 });
