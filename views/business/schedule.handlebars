@@ -23,18 +23,18 @@
 <section class="content">
 
   <div id="formatDisplay">
-    <form id="apptForm" class="form-format" onsubmit="alert('submitted');" action="#">
+    <form id="apptForm" class="form-format" method="post">
 
       <div class="col-md-6">
 
         <div class="box-body">
 
           <label for="firstName">First Name:</label>
-          <input type="text" id="inputFirstName" class="form-control" required autofocus />
+          <input type="text" id="inputFirstName" class="form-control" name="firstname" required autofocus />
           <label for="lastName">Last Name:</label>
-          <input type="text" id="inputLastName" class="form-control" required />
+          <input type="text" id="inputLastName" class="form-control" name="lastname" required />
           <label for="phoneNum">Phone Number:</label>
-          <input type="tel" pattern="^\(\d{3}\)\s\d{3}-\d{4}" id="inputPhoneNum" placeholder="(xxx) xxx-xxxx" class="form-control" required />
+          <input type="tel" pattern="^\(\d{3}\)\s\d{3}-\d{4}" id="inputPhoneNum" placeholder="(xxx) xxx-xxxx" class="form-control" name="phonenum" required />
         </div>
       </div>
 
@@ -49,12 +49,12 @@
         <div class="box-body">
           <label for="date">Date & Time:</label>
           <div id="date" class="input-group date form_datetime">
-            <input class="form-control" type="text" value="" form="apptForm" readonly required>
+            <input class="form-control" type="text" value="" form="apptForm" name="date" readonly required>
             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
           </div>
 
           <label for="reason">Reason for Appointment:</label><br />
-          <textarea id="reason" placeholder="Enter text here..." cols="60" rows="5" style="resize: none;" required></textarea>
+          <textarea id="reason" placeholder="Enter text here..." cols="60" rows="5" style="resize: none;" name="reason" required></textarea>
 
           <!--START DateTimePicker code-->
           <script type="text/javascript">
