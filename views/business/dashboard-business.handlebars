@@ -1,16 +1,165 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
 <section class="content-header">
     <h1>Dashboard </h1>
     <div id="txt" class="pull-right"></div>
     <h1 class="pull-right" id="currentDate"></h1>
 </section>
 
+<center>
+  <h3>Today's Appointments</h3>
+</center>
 <section class="content">
-    {{#if message}}
-        <div class="alert alert-danger">{{message}}</div>
-    {{/if}}
-
-    <div class="pull-left" style = "width: 50%; margin: 0 auto;">
-        <img src="http://i25.photobucket.com/albums/c97/evilsmith/resizeAnalytics_zpsrfxnhb9b.png" alt="Analytics">
+  <div class="container">
+    <div class="row-fluid">
+      <div class="col-md-10" style="margin-left:20px;">
+        <div class="list-group">
+          <button type="button" id="appt1" style="display: block;" class="list-group-item list-group-item-action" disabled>
+            Appointment 1
+            <span class="pull-right button-group">
+                <a href="#" onclick="toggle_visibility('appt1');" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+            </span>
+          </button>
+          <button type="button" id="appt2" style="display: block;" class="list-group-item list-group-item-action" disabled>
+            Appointment 2
+            <span class="pull-right button-group">
+                <a href="#" onclick="toggle_visibility('appt2');" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+            </span>
+          </button>
+          <button type="button" id="appt3" style="display: block;" class="list-group-item list-group-item-action" disabled>
+            Appointment 3
+            <span class="pull-right button-group">
+                <a href="#" onclick="toggle_visibility('appt3');" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+            </span>
+          </button>
+          <button type="button" id="appt4" style="display: block;" class="list-group-item list-group-item-action" disabled>
+            Appointment 4
+            <span class="pull-right button-group">
+                <a href="#" onclick="toggle_visibility('appt4');" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+            </span>
+          </button>
+          <button type="button" id="appt5" style="display: block;" class="list-group-item list-group-item-action" disabled>
+            Appointment 5
+            <span class="pull-right button-group">
+                <a href="#" onclick="toggle_visibility('appt5');" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+            </span>
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="container">
+    <div class="row-fluid">
+      <div class="col-md-5">
+          <canvas id="apptsPerMonth" width="300" height="300"></canvas>
+      </div>
+      <div class="col-md-6">
+        <canvas id="dayOfWeek" width="300" height="200"></canvas>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 </section>
+
+
+<!--START Hide List-->
+<script type="text/javascript">
+    function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+    }
+</script>
+<!--END Hide List-->
+
+<!--START Charts.js-->
+<script>
+var ctx = document.getElementById('apptsPerMonth').getContext('2d');
+var chart = new Chart(ctx, {
+  // The type of chart we want to create
+  type: 'line',
+
+  // The data for our dataset
+  data: {
+      labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+      datasets: [{
+          label: "Appointments Made",
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderColor: 'rgba(255, 99, 132, 1)',
+          data: [240, 224, 342, 420, 323, 445, 430, 423, 313, 223, 422, 331],
+          borderWidth: 3
+      }]
+  },
+  // Configuration options go here
+  options: {
+    scales: {
+        xAxes: [{
+            display: true,
+            scaleLabel: {
+                display: true,
+                labelString: 'Month'
+            }
+        }],
+        yAxes: [{
+            display: true,
+            scaleLabel: {
+                display: true,
+                labelString: '# of Appointments'
+            }
+        }]
+    },
+    title: {
+      display: true,
+      text: "Appointments Per Month",
+      fontSize: 20
+    }
+  }
+});
+
+var ctx2 = document.getElementById("dayOfWeek").getContext("2d");
+var chart = new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: [
+                    6, 11, 8, 14, 19
+                ],
+                backgroundColor: [
+                    "#FF6384", "#FF9F40", "#FFCD56", "#4BC0C0", "#36A2EB"
+                ],
+                label: 'Dataset 1'
+            }],
+            labels: [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+            ]
+        },
+        options: {
+            responsive: true,
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: ''
+            },
+            animation: {
+                animateScale: true,
+                animateRotate: true
+            },
+            title: {
+              display: true,
+              text: "Peak Business Days (Past 5 days)",
+              fontSize: 20
+            }
+        }
+    });
+</script>
+<!--END Charts.js-->
