@@ -24,7 +24,7 @@ exports.index = function(req, res) {
 };
 
 /**
- * Confirms the users first name, last name, date of birth and business id
+ * @description Confirms the users first name, last name, date of birth and business id
  * @param {Object} req
  * @param {Object} res
  * @param {Object} next
@@ -62,7 +62,7 @@ exports.confirm = function (req, res, next) {
 };
 
 /**
- * Retrieves the list of appointments
+ * @description Retrieves the list of appointments
  * @param {Object} req
  * @param {Object} res
  * @param {Object} next
@@ -84,7 +84,7 @@ exports.retrieve = function (req, res, next) {
 };
 
 /**
- * Transitions the state to the next state
+ * @description Transitions the state to the next state
  * @param {Object} req
  * @param {Object} res
  * @param {Object} next
@@ -118,7 +118,7 @@ exports.nextState = function (req, res, next) {
 };
 
 /**
- * PUT an updated state
+ * @description PUT an updated state
  * @param {Object} req
  * @param {Object} res
  * @param {Object} next
