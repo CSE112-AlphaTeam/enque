@@ -139,6 +139,43 @@ app.use(function(req, res, next) {
 app.use('/office', require('./routes/webapp/checkin'));
 app.use('/', businessRoutes);
 
+// First message sent to user after they validate their phone
+app.post('/sms', function(req, res){
+
+    var client  = require('twilio')('AC25fa0bed39ca0b79e61b4740c730dcbd', '931ca60c934f47644d9eb549b10b943b');
+    client.messages.create({
+        to: '+1' + req.body.phone,
+        from: '+19094431571',
+        body: 'Hi I am your appointment assistant'
+    }, function(err, data){
+        if(err)
+            console.log(err);
+        else
+            console.log(data);
+    }
+    );
+    
+});
+
+/*
+app.post('/appointment-save', function(req, res) {
+    if(req.body.result && req.body.result.parameters && req.body.result.parameters.business_id && req.body.result.parameters.appointment_time && req.body.result.parameters.phone_number)
+    {
+        const appointments = db.get('appointments');
+        appointments.insert(
+            {
+               business_id: req.body.result.parameters.business_id,
+               appointment_time: req.body.result.parameters.appointment_time,
+               contact_number: req.body.result.parameters.phone_number
+                
+            },
+            
+            function(err, doc) { if (err) console.log(err);}
+        );
+    }
+        
+});
+*/
 
 
 // Set Mobile Routes
@@ -149,6 +186,9 @@ app.use('/api/m/mobiletoken', mobileToken);
 app.use('/api/m/business', business);
 app.use('/api/m/example', require('./routes/api/example'));
 app.use('/api', require('./routes/webapi'));
+app.use('/api/sms', require('./routes/api/sms'));
+app.use('/api/schedule', require('./routes/api/schedule'));
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -184,6 +224,7 @@ app.use(function (err, req, res) {
         error: {}
     });
 });
+
 
 
 exports = module.exports = app;
