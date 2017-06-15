@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="initial-scale=1">
-<title>robobetty 0.6.0 &#8212; apiDoc for Robobetty</title>
-<meta name="description" content="apiDoc for Robobetty">
+<title>AlphaTeam 2.0.0 &#8212; Documentation for AlphaTeam</title>
+<meta name="description" content="Documentation for AlphaTeam">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/github.min.css">
 <style>
@@ -140,8 +140,34 @@ input[type="search"]::-webkit-search-cancel-button {
     display: block;
 }
 
-.back-to-top svg {
-    vertical-align: middle;
+.next-page {
+    display: none;
+    position: fixed;
+    left: 10rem;
+    bottom: 1rem;
+    padding: .5rem .6rem;
+    line-height: 1;
+    background: #fff;
+    z-index: 999;
+}
+
+.next-page {
+    display: block;
+}
+
+.prev-page {
+    display: none;
+    position: fixed;
+    left: 1rem;
+    bottom: 1rem;
+    padding: .5rem .6rem;
+    line-height: 1;
+    background: #fff;
+    z-index: 999;
+}
+
+.prev-page {
+    display: block;
 }
 
 .bs-footer {
@@ -162,11 +188,11 @@ input[type="search"]::-webkit-search-cancel-button {
     <div class="container">
 
         <h1>
-                robobetty
-            <small>0.6.0</small>
+                AlphaTeam
+            <small>2.0.0</small>
         </h1>
 
-        <p>apiDoc for Robobetty</p>
+        <p>Documentation for AlphaTeam</p>
 
     </div>
 
@@ -712,6 +738,11 @@ input[type="search"]::-webkit-search-cancel-button {
 
 </div>
 
+<body>
+<a href="page3.html" class="next-page"> Next Page</a>
+<a href="index.html" class ="prev-page"> Previous Page</a>
+</body>
+
 <footer class="bs-footer">
 
     <div class="container">
@@ -731,17 +762,23 @@ input[type="search"]::-webkit-search-cancel-button {
     'use strict';
 
     var headerHeight = $('.jumbotron').outerHeight(true),
-        $backToTop = $('.back-to-top');
+        $backToTop = $('.back-to-top'),
+        $nextPage = $('.next-page'),
+        $prevPage = $('prev-page');
 
     function handleScrollEvent() {
 
-        if (window.scrollY > headerHeight && $backToTop.not('.visible')) {
+        if (window.scrollY > headerHeight && $backToTop.not('.visible') && $nextPage.not('.visible') && $prevPage.not('.visible')) {
 
             $backToTop.addClass('visible');
+            $nextPage.addClass('visible');
+            $prevPage.addClass('visible');
 
-        } else if (window.scrollY < headerHeight && $backToTop.is('.visible')) {
+        } else if (window.scrollY < headerHeight && $backToTop.is('.visible') && $nextPage.is('.visible') && $prevPage.is('.visible')) {
 
             $backToTop.removeClass('visible');
+            $nextPage.removeClass('visible');
+            $prevPage.removeClass('visible');
 
         }
 

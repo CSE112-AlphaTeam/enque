@@ -1,7 +1,6 @@
 
 /**
  * @description Another test that sees if client successfully logs in to site
- * @param Using multiple emails and passwords
  * @returns Successul login
  *
  */

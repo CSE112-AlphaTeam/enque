@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="initial-scale=1">
-<title>AlphaTeam 0.6.0 &#8212; Documentation for AlphaTeam</title>
+<title>AlphaTeam 2.0.0 &#8212; Documentation for AlphaTeam</title>
 <meta name="description" content="Documentation for AlphaTeam">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/github.min.css">
@@ -140,8 +140,19 @@ input[type="search"]::-webkit-search-cancel-button {
     display: block;
 }
 
-.back-to-top svg {
-    vertical-align: middle;
+.next-page {
+    display: none;
+    position: fixed;
+    left: 10rem;
+    bottom: 1rem;
+    padding: .5rem .6rem;
+    line-height: 1;
+    background: #fff;
+    z-index: 999;
+}
+
+.next-page {
+    display: block;
 }
 
 .bs-footer {
@@ -163,7 +174,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
         <h1>
                 AlphaTeam
-            <small>0.6.0</small>
+            <small>2.0.0</small>
         </h1>
 
         <p>Documentation for AlphaTeam</p>
@@ -5173,9 +5184,9 @@ res.redirect('/addemployees');
 
 </div>
 
-<form action="/page2.html">
-    <input type="submit" value="Next Page" />
-</form>
+<body>
+<a href="page2.html" class="next-page"> Next Page</a>
+</body>
 
 <footer class="bs-footer">
 
@@ -5196,17 +5207,20 @@ res.redirect('/addemployees');
     'use strict';
 
     var headerHeight = $('.jumbotron').outerHeight(true),
-        $backToTop = $('.back-to-top');
+        $backToTop = $('.back-to-top'),
+        $nextPage = $('.next-page');
 
     function handleScrollEvent() {
 
-        if (window.scrollY > headerHeight && $backToTop.not('.visible')) {
+        if (window.scrollY > headerHeight && $backToTop.not('.visible') && $nextPage.not('.visible')) {
 
             $backToTop.addClass('visible');
+            $nextPage.addClass('visible');
 
-        } else if (window.scrollY < headerHeight && $backToTop.is('.visible')) {
+        } else if (window.scrollY < headerHeight && $backToTop.is('.visible') && $nextPage.is('.visible')) {
 
             $backToTop.removeClass('visible');
+            $nextPage.removeClass('visible');
 
         }
 

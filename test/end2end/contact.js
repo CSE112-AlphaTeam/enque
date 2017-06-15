@@ -1,7 +1,6 @@
 
 /**
  * @description Testing contact between client and page
- * @param N/A
  * @returns 'Everything works great' if client successfully contacts page
  *
  */

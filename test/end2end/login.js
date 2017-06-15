@@ -1,6 +1,5 @@
 /**
  * @description Testing if client successfully logs in to site
- * @param N/A
  * @returns Successul login
  *
  */
