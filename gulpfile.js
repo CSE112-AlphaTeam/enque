@@ -1,11 +1,11 @@
 // gulpfile.js
 var gulp = require('gulp');
+var apidoc = require('gulp-apidoc');
 var child_process = require('child_process');
-//var gutil = require('gulp-util');
-//var clean = require('gulp-clean');
-//var concat = require('gulp-concat');
-//var uglify = require('gulp-uglify');
-//var rename = require('gulp-rename');
+var clean = require('gulp-clean');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
 var server = require('gulp-express');
 var Server = require('karma').Server;
 var browserSync = require('browser-sync');
@@ -59,14 +59,18 @@ function execute(command, callback) {
 gulp.task('test',function () {
     return gulp.src('test/test.js')
         .pipe(jasmine()).on("error", function(){process.exit(1)});
-});;
+});
 
 gulp.task('clean', function () {
   return gulp.src('build', {read: false})
     .pipe(plugins.clean());
 });
 
-gulp.task('lint', ['test'], function() {
+/*
+ * Linting task. This will lint all js files in the current level and below
+ * Should be run any before testing and deployment
+ */
+gulp.task('lint', function() {
   return gulp.src('./*.js')
     .pipe(plugins.jshint())
     .pipe(plugins.jshint.reporter('jshint-stylish'));
@@ -138,24 +142,6 @@ gulp.task('nodemon', ['lint'], function (cb) {
     });
 });
 
-/*gulp.task('mongostart', function() {
-    child_process.exec('mongod --dbpath db', function(err, stdout, stderr) {
-        if(err) {
-            console.log(err.stack);
-            console.log("Error code: " + err.code);
-            console.log("Signal received: " + err.signal);
-        }
-    });
-});
-gulp.task('mongoend', function() {
-    child_process.exec("mongo --eval 'db.shutdownServer()' admin", function(err, stdout, stderr) {
-        if(err) {
-            console.log(err.stack);
-            console.log("Error code: " + err.code);
-            console.log("Signal received: " + err.signal);
-        }
-    });
-});*/
 
 gulp.task('browser-sync', ['nodemon'/*, 'mongostart', 'watch-check'*/], function () {
 
@@ -174,6 +160,9 @@ gulp.task('browser-sync', ['nodemon'/*, 'mongostart', 'watch-check'*/], function
 
     //Change whether browser will auto open
     open: true,
+
+		//The small pop-over notifications in the browser are not always needed/wanted.
+		notify: false,
 
     // open the proxied app in chrome
     //browser: ['google chrome']
@@ -199,7 +188,7 @@ gulp.task('mongorestore', function() {
 
 // NightWatch
 gulp.task('night', function() {
-  return gulp.src('')
+  return gulp.src('./test/end2end/*.js')
     .pipe(nightwatch({
       configFile: './nightwatch.json'
     })).on("error", function(){process.exit(1)});
@@ -207,18 +196,6 @@ gulp.task('night', function() {
 
 
 gulp.task('default', ['browser-sync','night']);
-
-var karma = require('karma').server;
-/**
- * Run test once and exit
- 
-gulp.task('test', function (done) {
-  karma.start({
-    configFile: __dirname + '/karma.conf.js',
-    singleRun: true
-  }, done);
-});
-*/
 
 
 // prerequisites - must have heroku command line tools installed
@@ -264,50 +241,13 @@ gulp.task('stage', ['test'], function(){
     });
 });
 
-// check pages on local
-gulp.task('checkLocal', ['lint'], function(callback) {
-
-  var options = {
-    pageUrls: [
-      'http://localhost:4000/',
-      'http://localhost:4000/register',
-      'http://localhost:4000/login'
-    ],
-    checkLinks: true,
-    onlySameDomain: true,
-    queryHashes: true,
-    noRedirects: true,
-    noLocalLinks: true,
-    linksToIgnore: [
-      // 'http://localhost:4000/ignore.html'
-    ],
-    checkXhtml: true,
-    checkCaching: true,
-    checkCompression: true,
-    maxResponseTime: 200,
-    summary: true
-  };
-
-  callback = function() {
-    console.log('Done checking local.');
-  };
-
-  plugins.checkPages(console, options, callback);
-});
-
-//gulp.task('watch-check', function() {
-//    gulp.watch('public/**/*.*', ['lint']);
-//    gulp.watch('views/**/*.*', ['lint']);
-//    gulp.watch('public/javascripts/*.js', ['lint']);
-//});
-
 // check pages on development
 gulp.task('checkDev', ['lint'], function(callback) {
   var options = {
     pageUrls: [
-      'http://robobetty-dev.herokuapp.com/',
-      'http://robobetty-dev.herokuapp.com/register',
-      'http://robobetty-dev.herokuapp.com/login'
+      'http://alpha-team.herokuapp.com/',
+      'http://alpha-team.herokuapp.com/register',
+      'http://alpha-team.herokuappp.com/login'
     ],
     checkLinks: true,
     maxResponseTime: 500,
@@ -325,9 +265,9 @@ gulp.task('checkDev', ['lint'], function(callback) {
 gulp.task('checkProd', function(callback) {
   var options = {
     pageUrls: [
-      'http://robobetty.com/',
-      'http://robobetty.com/register',
-      'http://robobetty.com/login'
+      'http://alpha-team.herokuapp.com/',
+      'http://alpha-team.herokuapp.com/register',
+      'http://alpha-team.herokuappp.com/login'
     ],
     checkLinks: true,
     maxResponseTime: 500,
@@ -341,9 +281,7 @@ gulp.task('checkProd', function(callback) {
 plugins.checkPages(console, options, callback);
 
 });
-// Generate API Doc
-var gulp = require('gulp'),
-    apidoc = require('gulp-apidoc');
+
 
 gulp.task('apidoc', function(){
           plugins.apidoc.exec({
