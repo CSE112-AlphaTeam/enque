@@ -3,7 +3,7 @@ var router = express.Router();
 var auth = require('../../../lib/auth');
 
 /**
- * Takes an HTTP Basic Auth String and returns the username and password parts of it.
+ * @description Takes an HTTP Basic Auth String and returns the username and password parts of it.
  *
  * @param authString The auth string with "Basic " already removed from beginning,
  * @returns {Object|Boolean} An object with fields `email` and `password` or the value `false`

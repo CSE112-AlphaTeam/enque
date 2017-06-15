@@ -1,5 +1,16 @@
 var style = require('./../../../lib/style.js');
 
+/**
+ * @description Render the business theme
+ * GET /api/m/form/:id
+ *
+ * @param req req.db A database object.
+ * @param res Respond with '404' (form not found) or a JSON representation of
+ *        the form.
+ * @param next Used to handle any errors encountered when querying the
+ *        database.array
+ * @returns N/A
+ */
 exports.get = function (req, res, next) {
     // console.log(req);
     var bid = req.user[0].business;

@@ -1,3 +1,9 @@
+
+/**
+ * @description Another test that sees if client successfully logs in to site
+ * @returns Successul login
+ *
+ */
 module.exports = {  
   'Login Page - end2end' : function (client) {
     client

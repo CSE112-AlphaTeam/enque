@@ -1,41 +1,18 @@
-// var style = require('./../../../lib/style.js');
-//
-// exports.get = function (req, res, next) {
-//     var business = req.session.business;
-//     res.render('checkin/checkin', {
-//         companyName: business.companyName,
-//         bg: business.style.bg,
-//         logo: business.logo,
-//         buttonBg: style.rgbObjectToCSS(business.style.buttonBg),
-//         buttonText: style.rgbObjectToCSS(business.style.buttonText),
-//         containerText: style.rgbObjectToCSS(business.style.containerText),
-//         containerBg: style.rgbObjectToCSS(business.style.containerBg),
-//         layout: false
-//     });
-// };
 var ObjectID = require('mongodb').ObjectID;
 var style = require('./../../../lib/style.js');
 
 var request = require('request');
 
+/**
+ * @description Renders the checkin page
+ * @param req
+ * @param res
+ * @param next
+ * @returns N/A
+ */
 exports.get = function (req, res, next) {
 
     var business = req.session.business;
-    //
-    //var slackOptions = {
-    //    uri: 'https://hooks.slack.com/services/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',
-    //    method: 'POST',
-    //    json: {
-    //        "channel": "#bobsburgers",
-    //        "text": "A new client just checked in!"
-    //    }
-    //};
-    //
-    //request(slackOptions, function (error, response, body) {
-    //    if(!error && response.statusCode == 200) {
-    //        console.log(body.id);
-    //    }
-    //});
 
     res.render('checkin/checkin', {
         companyName: business.companyName,
@@ -49,6 +26,13 @@ exports.get = function (req, res, next) {
     });
 };
 
+/**
+ * @description Allows the user to set up an appointment with inputted information
+ * @param req
+ * @param res
+ * @param next
+ * @returns Appropriate appointment date/time
+ */
 exports.post = function (req, res, next) {
     var db = req.db;
     var io = req.app.io;

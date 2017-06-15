@@ -1,3 +1,9 @@
+
+/**
+ * @description Testing contact between client and page
+ * @returns 'Everything works great' if client successfully contacts page
+ *
+ */
 module.exports = {  
   'Contact us - end2end' : function (client) {
     client
