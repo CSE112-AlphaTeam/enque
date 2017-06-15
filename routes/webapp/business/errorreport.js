@@ -32,6 +32,6 @@ exports.get = function(req,res,next){
         title: 'Report Errors',
         isOwner: req.user[0].admin,
         businessId: req.user[0].business,
-        errorReport: "active"
+        errorreport: "active"
     });
 }
