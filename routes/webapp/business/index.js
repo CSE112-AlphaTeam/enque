@@ -18,6 +18,13 @@ var schedule = require('./schedule');
 /*
  * TODO: Explain where this export is pointing to.
  */
+ 
+/** 
+ * @description Check if user is logged in, if so, allows user to access user settings
+ * @param passport - user information
+ * @returns router - routes within user settings systems 
+ *
+ */
 module.exports = function (passport) {
     //Setup the routes
     router.get('/', landing.get);

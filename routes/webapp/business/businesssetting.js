@@ -1,5 +1,11 @@
 var auth = require ('../../../lib/auth');
 
+
+/**
+ * @description Takes an req parameter and res parameter and allows user to change the details of a particular company.
+ * @param req The req parameter used to access the database,
+ * @returns N/A
+ */
 exports.post = function (req, res) {
     var db = req.db;
     var businesses = db.get('businesses');
