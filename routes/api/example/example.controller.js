@@ -11,7 +11,13 @@
 
 var _ = require('underscore');
 
-
+/**
+ * @description grab our db object from the request and query the collection
+ * @param req The req parameter used to access the database
+ * @param res 
+ * @return res.json(200, users);
+ */
+ 
 exports.index = function(req, res) {
 
   // grab our db object from the request
@@ -25,7 +31,12 @@ exports.index = function(req, res) {
   });
 };
 
-//Create a User
+/**
+ * @description Create the user
+ * @param req The req parameter used to access the database
+ * @param res 
+ * @return res.json(201, users);
+ */
 exports.create = function(req, res) {
 
   // grab our db object from the request
@@ -39,7 +50,12 @@ exports.create = function(req, res) {
   });
 };
 
-// Get a single user
+/**
+ * @description Get a single user
+ * @param req The req parameter used to access the database
+ * @param res 
+ * @return res.json(201, users);
+ */
 exports.show = function(req, res) {
 
   // grab our db object from the request
@@ -60,7 +76,12 @@ exports.update = function(req, res) {
 
 };
 
-// Deletes a thing from the DB.
+/**
+ * @description Deletes a thing from the DB
+ * @param req The req parameter used to access the database
+ * @param res 
+ * @return res.json(201, users);
+ */
 exports.destroy = function(req, res) {
   // grab our db object from the request
   var db = req.db;
@@ -73,6 +94,12 @@ exports.destroy = function(req, res) {
   });
 };
 
+/**
+ * @description Handle Errors by sending status
+ * @param res 
+ * @param err
+ * @return res.sendStatus;
+ */
 function handleError(res, err) {
   return res.sendStatus(500, err);
 }
