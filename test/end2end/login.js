@@ -1,3 +1,10 @@
+/**
+ * @description Testing if client successfully logs in to site
+ * @param N/A
+ * @returns Successul login
+ *
+ */
+
 module.exports = {  
   'Login Page - end2end' : function (client) {
     client
