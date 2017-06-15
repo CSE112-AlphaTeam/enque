@@ -1,6 +1,14 @@
 var auth = require('../../../lib/auth');
 var async = require('async');
 
+
+/**
+ * @description Takes an req parameter and res parameter and returns the details of the website dashboard. The user
+ * is then prompted to change any of the information presented.
+ *
+ * @param req The req parameter used to access the database,
+ * @returns N/A
+ */
 exports.get = function (req, res) {
 
 	var isPeter = req.user[0].peter;

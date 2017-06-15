@@ -6,7 +6,7 @@ var imgur = require('imgur');
 imgur.setClientId('b67dffd2dbe1ea5');
 
 /**
- * Takes an req parameter and res parameter and returns the details of a particular employee.
+ * @description Takes an req parameter and res parameter and returns the details of a particular employee.
  *
  * @param req The req parameter used to access the database,
  * @returns title, fname, lname, password, phone, email, smsNotify, emailNotify
@@ -35,7 +35,7 @@ exports.get = function (req,res) {
 };
 
 /**
- * Takes an req parameter and res parameter and returns the details of a particular employee. The user
+ * @description Takes an req parameter and res parameter and returns the details of a particular employee. The user
  * is then prompted to change any of the information presented.
  *
  * @param req The req parameter used to access the database,
@@ -183,6 +183,12 @@ exports.post = function (req, res) {
 
 };
 
+/**
+ * @description Takes an req parameter and res parameter and sets company information to what user inputs when logging in
+ *
+ * @param req The req parameter used to access the database,
+ * @returns N/A
+ */
 exports.setCompanyInfo = function (req, res) {
 
 
@@ -229,7 +235,12 @@ exports.setCompanyInfo = function (req, res) {
 
 };
 
-
+/**
+ * @description Takes an req parameter and res parameter and adds functionality to upload and render new Company Logo
+ *
+ * @param req The req parameter used to access the database,
+ * @returns N/A
+ */
 exports.uploadLogo = function(req, res, next){
 
     var db = req.db;
@@ -299,7 +310,7 @@ exports.uploadLogo = function(req, res, next){
 
 
 /**
- * Helper function to render the settings page
+ * @description Helper function to render the settings page
  *
  * @param req
  * @param res

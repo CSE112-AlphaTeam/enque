@@ -1,5 +1,16 @@
+<<<<<<< HEAD
 module.exports = {
   'Test 1' : function (client) {
+=======
+
+/**
+ * @description Another test that sees if client successfully logs in to site
+ * @returns Successul login
+ *
+ */
+module.exports = {  
+  'Login Page - end2end' : function (client) {
+>>>>>>> a8c94f66c7244ac5dca5e5ecbb535d19201521d6
     client
       .url('http://localhost:4000/')
       .assert.title('Landing Page')

@@ -28,10 +28,10 @@ exports.get = function(req,res,next){
     var inputPhone = req.body.inputPhone;
 
 
-        res.render('business/errorReport', {
+        res.render('business/errorreport', {
         title: 'Report Errors',
         isOwner: req.user[0].admin,
         businessId: req.user[0].business,
-        errorReport: "active"
+        errorreport: "active"
     });
 }

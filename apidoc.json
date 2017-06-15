@@ -1,6 +1,8 @@
 {
+
   "name": "Enque",
   "version": "0.6.0",
+
   "description": "Mobile REST API",
   "title": "Enque",
   "url" : "http://alpha-team.herokuapp.com/api",

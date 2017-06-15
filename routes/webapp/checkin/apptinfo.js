@@ -1,5 +1,12 @@
 var style = require('./../../../lib/style.js');
 
+/**
+ * @description Retrieves the appointment information
+ * @param req
+ * @param res
+ * @param next
+ * @returns N/A
+ */ 
 exports.get = function (req, res, next) {
     var db = req.db;
     var appointments = db.get('appointments');

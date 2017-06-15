@@ -12,6 +12,12 @@ var ObjectId = require('mongodb').ObjectID;
 //var http = require('http');
 var request = require('request');
 //need this since we are passing in a passport dependency in adminLTEapp.js line 22
+
+/**
+ * @description For Slack Notifications - need this since we are passing in a passport dependency in adminLTEapp.js line 22
+ * @param passport
+ * @returns N/A
+ */
 module.exports = function (passport) {
 
 
