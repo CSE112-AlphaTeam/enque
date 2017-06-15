@@ -46,11 +46,12 @@ function makeSubmitButton() {
 }
 /**
  *
- *
+ * @description Make a custom form for a specific business
  * @param db The MongoDB object
  * @param businessId The id for the business
  * @param body The form body (used to prefill form)
  * @param fn Callback function `fn(formHtml)`
+ * @returns Appropriate error messages
  */
 function makeForm(db, businessId, body, fn) {
     var businesses = db.get('businesses');
@@ -87,6 +88,13 @@ function makeForm(db, businessId, body, fn) {
     });
 }
 
+/**
+ * @description 
+ * @param req
+ * @param res
+ * @param next
+ * @return N/A
+ */
 exports.get = function (req, res, next) {
     var business = req.session.business;
     makeForm(req.db, req.params.id, {}, function (err, formHtml) {
@@ -106,6 +114,13 @@ exports.get = function (req, res, next) {
     });
 };
 
+/**
+ * @description Inserts the responses from the form into the database
+ * @param req
+ * @param res
+ * @param next
+ * @returns Appropriate error messages
+ */
 exports.post = function (req, res, next) {
     var db = req.db;
     var forms = db.get('forms');

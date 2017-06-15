@@ -1,6 +1,10 @@
 /**
- * Finds user's appointment in database and updates state accordingly:
+ * @description Finds user's appointment in database and updates state accordingly:
  * if checked in, state is set to roomed; if roomed, state is set to done.
+ * @param req
+ * @param res
+ * @param next
+ * @returns {JSON} An array of fieldObjects containing the form
  */
 exports.put = function (req, res, next) {
 

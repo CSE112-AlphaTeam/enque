@@ -4,7 +4,10 @@
 var ObjectID = require('mongodb').ObjectID;
 
 /**
- * Obtains all appointments for today for the given employee.
+ * @description Obtains all appointments for today for the given employee.
+ * @param req
+ * @param res
+ * @returns N/A
  */
 exports.get = function (req, res) {
     var db = req.db;
