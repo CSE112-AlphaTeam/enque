@@ -58,7 +58,7 @@ function execute(command, callback) {
 /*
  * Testing Tasks
  */
-gulp.task('test', ['lint', /*'night*/], function () {
+gulp.task('test', ['lint', 'night'], function () {
     return gulp.src('test/test.js')
         .pipe(jasmine()).on("error", function(){process.exit(1)});
 });
@@ -201,9 +201,9 @@ gulp.task('nodemon', ['lint'], function (cb) {
 
 /*
  *
- * gulp tasks for mongodb 
+ * gulp tasks for mongodb
  *
- */ 
+ */
 
 // mongodump - dump all databases on localhost
 gulp.task('mongodump', function() {
@@ -238,7 +238,7 @@ gulp.task('apidoc', function(){
 /*
  *
  * Deploy API Docs to gh pages
- */ 
+ */
 gulp.task('deploy-gh', function () {
    	var currentdate = new Date();
 	/*var timeString = currentdate.getDate() + "/"
@@ -265,4 +265,3 @@ gulp.task('apidoc-url', function(){
   .pipe(plugins.open('', options));
 });
 gulp.task('doc-deploy', ['apidoc','deploy-gh','apidoc-url']);
-

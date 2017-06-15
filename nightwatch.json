@@ -1,5 +1,5 @@
 {
-  "src_folders" : ["./test/end2end"],
+  "src_folders" : ["./test/end2end/"],
   "output_folder" : "reports",
 
   "selenium" : {
@@ -18,11 +18,10 @@
       "selenium_port"  : 4444,
       "selenium_host"  : "localhost",
       "desiredCapabilities": {
-        "browserName": "chrome",
+        "browserName": "safari",
         "javascriptEnabled": true,
         "acceptSslCerts": true
       }
     }
   }
 }
-

@@ -19,7 +19,7 @@
             {{/if}}
             {{#if isOwner}}
              <li class="treeview">
-                <a href="/office/{{businessId}}/checkin">
+                <a href="/office/{{businessId}}/checkin" id="signin">
                     <i class="fa fa-navicon"></i> <span>Sign In Screen</span>
                 </a>
             </li>
@@ -58,7 +58,7 @@
             </li>
 
             <li class="{{settings}} treeview">
-                <a href="/accountSettings">
+                <a href="/accountSettings" id="settings">
                     <i class="fa fa-cog"></i>
                     <span>Settings</span>
                 </a>
