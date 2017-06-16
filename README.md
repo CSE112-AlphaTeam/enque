@@ -53,6 +53,6 @@ Click the restart button on the latest build to rebuild it.
 
 Documentation for Alpha Team Enque
 -----------------------------------
-1. To view Documentation, go to [Alpha Team Documentation Site](CSE112-AlphaTeam.github.io)
+1. To view Documentation, go to [Alpha Team Documentation Site](https://cse112-alphateam.github.io/)
 2. The site contains multiple pages, which you can access using the Next/Previous Page buttons on the bottom left.
 3. Table of Contents on the left provides easy access to find specific functions.
