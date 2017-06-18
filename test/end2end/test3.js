@@ -1,3 +1,6 @@
+<<<<<<< HEAD:test/end2end/test3.js
+module.exports = {
+=======
 
 /**
  * @description Testing contact between client and page
@@ -5,6 +8,7 @@
  *
  */
 module.exports = {  
+>>>>>>> a8c94f66c7244ac5dca5e5ecbb535d19201521d6:test/end2end/contact.js
   'Contact us - end2end' : function (client) {
     client
       .url('http://localhost:4000/#contact_us')
@@ -14,11 +18,12 @@ module.exports = {
 
   'part two' : function(client) {
     client
-      .setValue('#name', 'Nikan Aminian')
-      .setValue('#email', 'naminian@ucsd.edu')
-      .setValue('#message','Everything works great!')
-      .pause(3000)
-      .submitForm('#contact_form')
+      .setValue('#name', 'Thomas Powell')
+      .setValue('#email', 'tpowell@ucsd.edu')
+      .setValue('#message','Everything works great, everyone gets an A.')
+      .pause(2000)
+      .submitForm('#gform')
+      .pause(2000)
       .end();
   }
 }

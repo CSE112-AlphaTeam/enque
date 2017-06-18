@@ -35,7 +35,7 @@ An Example Conversation:
 4. After you input the information, it will confirm the appointment
 
 Talk to the SMS bot
------------------------------
+-------------------------------
 An Example Conversation
 1. To start a conversation, initiate by typing "Hi" or "Hello"
 2. Type "Appointment" to make an appointment, and the bot will prompt for the following action to continue
@@ -43,10 +43,16 @@ An Example Conversation
 4. Type "Remind" to pull out information after making an appointment
 	
 Access to CI platform on Travis
-----------------------------
+---------------------------------
 Go to the [Travis](https://travis-ci.org/) website.
 Travis is based on your GitHub account.
 Sign in to Travis with your GitHub credentials, then find the
 CSE112-AlphaTeam/enque repository
 
 Click the restart button on the latest build to rebuild it.
+
+Documentation for Alpha Team Enque
+-----------------------------------
+1. To view Documentation, go to [Alpha Team Documentation Site](https://cse112-alphateam.github.io/)
+2. The site contains multiple pages, which you can access using the Next/Previous Page buttons on the bottom left.
+3. Table of Contents on the left provides easy access to find specific functions.
